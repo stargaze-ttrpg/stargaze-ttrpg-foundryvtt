@@ -1,0 +1,266 @@
+<form class="{{cssClass}} character-sheet" autocomplete="off">
+  <div class="sheet">
+
+    <header class="sheet-header">
+      <div class="header-top">
+        <input class="char-name" type="text" name="name" value="{{actor.name}}" placeholder="Имя">
+        <input class="level" type="number" name="system.level" value="{{system.level}}">
+        <input class="class" type="text" name="system.class1" value="{{system.class1}}" placeholder="Класс 1" data-autocomplete-group="classes">
+        <input class="class" type="text" name="system.class2" value="{{system.class2}}" placeholder="Класс 2" data-autocomplete-group="classes">
+        <nav class="sheet-tabs tabs stargaze" data-group="primary">
+          <a class="item" data-tab="main">Основное</a>
+          <a class="item" data-tab="dossier">Досье</a>
+          <a class="item" data-tab="augments">Аугменты</a>
+          <a class="item" data-tab="abilities">Способности</a>
+        </nav>
+      </div>
+
+      <div class="header-stats">
+        <div class="left-stats">
+          {{> "systems/stargaze/templates/character-stat.hbs" resource='true' stat="health" }}
+          {{> "systems/stargaze/templates/character-stat.hbs" resource='true' stat="stamina" }}
+
+          {{> "systems/stargaze/templates/character-stat.hbs" resource='false' stat="armor" }}
+          {{> "systems/stargaze/templates/character-stat.hbs" resource='false' stat="initiative" }}
+          {{> "systems/stargaze/templates/character-stat.hbs" resource='false' stat="movementSpeed" }}
+        </div>
+
+        <div class="right-stats">
+          {{> "systems/stargaze/templates/character-stat.hbs" resource='false' stat="rapidFire" }}
+          {{> "systems/stargaze/templates/character-stat.hbs" resource='false' stat="accurateFire" }}
+          {{> "systems/stargaze/templates/character-stat.hbs" resource='false' stat="melee" }}
+          {{> "systems/stargaze/templates/character-stat.hbs" resource='false' stat="hacking" }}
+        </div>
+      </div>
+    </header>
+
+    <div class="sheet-body">
+
+      <section class="tab" data-group="primary" data-tab="main">
+
+        <div class="main">
+
+          <div class="attributes">
+
+            <section class="attribute body">
+              <header>
+                <div class="expression">
+                  <span class="expression_total">{{system.attributes.body}}</span>
+                  <div class="expression_edit">
+                    <input class="expression_mod" type="number" name="system.attributes.body" value="{{system.attributes.body}}">
+                  </div>
+                </div>
+                <span class="attr-name interactive_button" data-tooltip="{{localize 'STARGAZE.Attributes.body.hint'}}">{{localize "STARGAZE.Attributes.body.name"}}</span>
+              </header>
+              <div class="skills">
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="bodySave" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="endurance" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="athletics" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="movement" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="acrobatics" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="detox" }}
+              </div>
+            </section>
+
+            <section class="attribute nerv">
+              <header>
+                <div class="expression">
+                  <span class="expression_total">{{system.attributes.nerv}}</span>
+                  <div class="expression_edit">
+                    <input class="expression_mod" type="number" name="system.attributes.nerv" value="{{system.attributes.nerv}}">
+                  </div>
+                </div>
+                <span class="attr-name interactive_button" data-tooltip="{{localize 'STARGAZE.Attributes.nerv.hint'}}">{{localize "STARGAZE.Attributes.nerv.name"}}</span>
+              </header>
+              <div class="skills">
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="nervSave" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="reaction" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="accuracy" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="precision" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="alertness" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="stealth" }}
+              </div>
+            </section>
+
+            <section class="attribute mind">
+              <header>
+                <div class="expression">
+                  <span class="expression_total">{{system.attributes.mind}}</span>
+                  <div class="expression_edit">
+                    <input class="expression_mod" type="number" name="system.attributes.mind" value="{{system.attributes.mind}}">
+                  </div>
+                </div>
+                <span class="attr-name interactive_button" data-tooltip="{{localize 'STARGAZE.Attributes.mind.hint'}}">{{localize "STARGAZE.Attributes.mind.name"}}</span>
+              </header>
+              <div class="skills">
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="mindSave" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="informatics" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="technical" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="humanitarian" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="biological" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="psychological" }}
+              </div>
+            </section>
+
+            <section class="attribute psyc">
+              <header>
+                <div class="expression">
+                  <span class="expression_total">{{system.attributes.psyc}}</span>
+                  <div class="expression_edit">
+                    <input class="expression_mod" type="number" name="system.attributes.psyc" value="{{system.attributes.psyc}}">
+                  </div>
+                </div>
+                <span class="attr-name interactive_button" data-tooltip="{{localize 'STARGAZE.Attributes.psyc.hint'}}">{{localize "STARGAZE.Attributes.psyc.name"}}</span>
+              </header>
+              <div class="skills">
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="psycSave" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="empathy" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="coolness" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="persuasion" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="tactics" }}
+                {{> "systems/stargaze/templates/character-skill.hbs" system=system skill="eccentricity" }}
+              </div>
+            </section>
+
+          </div>
+          <div class="main-lists">
+            {{> "systems/stargaze/templates/character-list.hbs" name="properties" items=properties}}
+            {{> "systems/stargaze/templates/character-list.hbs" name="actions" items=actions}}
+          </div>
+        </div>
+
+        <div class="inventories">
+          {{> "systems/stargaze/templates/character-list.hbs" name="inventory_ship" items=inventory.ship }}
+          {{> "systems/stargaze/templates/character-list.hbs" name="inventory_stock" items=inventory.stock }}
+          {{> "systems/stargaze/templates/character-list.hbs" name="inventory_self" items=inventory.self }}
+          {{> "systems/stargaze/templates/character-list.hbs" name="inventory_weapons" items=inventory.weapons }}
+        </div>
+
+      </section>
+
+      <section class="tab" data-group="primary" data-tab="dossier">
+        <div class="dossier">
+
+          <div class="dossier-picture" data-action="edit-image">
+            <img src="{{actor.img}}" alt="{{actor.name}}">
+          </div>
+
+          <div class="dossier-decoration"></div>
+
+          <div class="dossier-field dossier-appearance stargaze textarea1">
+            <label>Внешность</label>
+            <textarea name="system.appearance">{{system.appearance}}</textarea>
+          </div>
+
+          <div class="dossier-field dossier-temper stargaze textarea1">
+            <label>Характер</label>
+            <textarea name="system.temper">{{system.temper}}</textarea>
+          </div>
+
+          <div class="dossier-field dossier-notes stargaze textarea1">
+            <label>Заметки</label>
+            <textarea name="system.notes">{{system.notes}}</textarea>
+          </div>
+
+          <div class="dossier-field dossier-goals stargaze textarea1">
+            <label>Цели</label>
+            <textarea name="system.goals">{{system.goals}}</textarea>
+          </div>
+
+          <div class="dossier-field dossier-owns stargaze textarea1">
+            <label>Имущество</label>
+            <textarea name="system.owns">{{system.owns}}</textarea>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="tab" data-group="primary" data-tab="augments">
+        <div class="augments">
+
+          <div class="augment-icon augment-body">
+            <i class="fa-solid fa-person"></i>
+          </div>
+          <div class="augment-icon augment-nerv">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div class="augment-icon augment-mind">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <div class="augment-icon augment-psyc">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+
+          {{> "systems/stargaze/templates/character-list.hbs" name="implants_body" items=implants.body }}
+          {{> "systems/stargaze/templates/character-list.hbs" name="implants_nerv" items=implants.nerv }}
+          {{> "systems/stargaze/templates/character-list.hbs" name="implants_mind" items=implants.mind }}
+          {{> "systems/stargaze/templates/character-list.hbs" name="implants_psyc" items=implants.psyc }}
+        </div>
+      </section>
+
+      <section class="tab" data-group="primary" data-tab="abilities">
+        <div class="abilities">
+          <nav class="sheet-tabs tabs stargaze" data-group="abilities">
+            <a class="item" data-tab="scripts">Скрипты (Взлом)</a>
+            <a class="item" data-tab="chemicals">Химикаты</a>
+            <a class="item" data-tab="psionics">Псионика</a>
+          </nav>
+
+          <div class="abilities-body">
+            <section class="tab" data-group="abilities" data-tab="scripts">
+              <div class="scripts-grid">
+                <div class="scripts-header">
+                  {{> "systems/stargaze/templates/character-stat.hbs" resource='true' stat="hackingCharges" }}
+                  {{> "systems/stargaze/templates/character-stat.hbs" resource='true' stat="hackingOverload" }}
+                </div>
+
+                {{> "systems/stargaze/templates/character-list.hbs" name="scripts_1" items=scriptsByLevel.level1 }}
+                {{> "systems/stargaze/templates/character-list.hbs" name="scripts_2" items=scriptsByLevel.level2 }}
+                {{> "systems/stargaze/templates/character-list.hbs" name="scripts_3" items=scriptsByLevel.level3 }}
+                {{> "systems/stargaze/templates/character-list.hbs" name="scripts_4" items=scriptsByLevel.level4 }}
+
+              </div>
+            </section>
+
+            <section class="tab" data-group="abilities" data-tab="chemicals">
+              <div class="chemicals-grid">
+                <div class="components">
+                  {{> "systems/stargaze/templates/character-stat.hbs" resource='true' stat="componentB" }}
+                  {{> "systems/stargaze/templates/character-stat.hbs" resource='true' stat="componentN" }}
+                  {{> "systems/stargaze/templates/character-stat.hbs" resource='true' stat="componentM" }}
+                  {{> "systems/stargaze/templates/character-stat.hbs" resource='true' stat="componentP" }}
+                </div>
+
+                {{> "systems/stargaze/templates/character-list.hbs" name="chemicals_1" items=chemicalsByLevel.level1 }}
+                {{> "systems/stargaze/templates/character-list.hbs" name="chemicals_2" items=chemicalsByLevel.level2 }}
+                {{> "systems/stargaze/templates/character-list.hbs" name="chemicals_3" items=chemicalsByLevel.level3 }}
+                {{> "systems/stargaze/templates/character-list.hbs" name="chemicals_4" items=chemicalsByLevel.level4 }}
+
+              </div>
+            </section>
+
+            <section class="tab" data-group="abilities" data-tab="psionics">
+              <div class="psionics-grid">
+                <div class="psionics-h_nt">Псионический потенциал: {{system.psionicPotential}}</div>
+                <div class="psionics-icons">
+                  <div class="psy-icon" data-level="1"></div>
+                  <div class="psy-icon" data-level="2"></div>
+                  <div class="psy-icon" data-level="3"></div>
+                  <div class="psy-icon" data-level="4"></div>
+                </div>
+
+                {{> "systems/stargaze/templates/character-list.hbs" name="psionics_1" items=psionicsByLevel.level1 }}
+                {{> "systems/stargaze/templates/character-list.hbs" name="psionics_2" items=psionicsByLevel.level2 }}
+                {{> "systems/stargaze/templates/character-list.hbs" name="psionics_3" items=psionicsByLevel.level3 }}
+                {{> "systems/stargaze/templates/character-list.hbs" name="psionics_4" items=psionicsByLevel.level4 }}
+
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+</form>

@@ -1,0 +1,47 @@
+div.weapon-card { 
+  display: grid;
+  box-sizing: content-box;
+  grid-template:
+    "a a a" auto
+    "b c d" auto
+    "e f g" auto
+    "h h h" auto
+    / auto auto 1fr;
+    margin: 5px;
+}
+
+.weapon-card .a { grid-area: a; }
+.weapon-card .b { grid-area: b; }
+.weapon-card .c { grid-area: c; }
+.weapon-card .d { grid-area: d; }
+.weapon-card .e { grid-area: e; }
+.weapon-card .f { grid-area: f; }
+.weapon-card .g { grid-area: g; }
+.weapon-card .h { grid-area: h; }
+
+.weapon-card .weapon-range {
+  box-sizing: content-box;
+}
+
+.weapon-card .damage-row {
+  box-sizing: content-box;
+}
+
+.weapon-card .damage-label {
+  box-sizing: content-box;
+  text-wrap: nowrap;
+}
+
+.weapon-card .damage-value {
+  box-sizing: content-box;
+  text-wrap: nowrap;
+}
+
+.weapon-card .damage-type {
+  box-sizing: content-box;
+  text-wrap: nowrap;
+}
+
+.weapon-card .properties { 
+  box-sizing: content-box;
+}

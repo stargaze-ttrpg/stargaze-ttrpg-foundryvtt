@@ -1,0 +1,13 @@
+<div class="skill" data-skill="{{skill}}">
+
+  <div class="expression">
+    <span class="expression_total">{{lookup system.skills (concat skill 'Total')}}</span>
+    <div class="expression_edit">
+      <input class="expression_mod" type="number" name="system.skills.{{skill}}" value="{{lookup system.skills skill}}">
+      <span class="expression_str">{{lookup system.skills (concat skill 'Expression')}}</span>
+    </div>
+  </div>
+
+  <span class="skill-name interactive_button" data-tooltip="{{localize (concat 'STARGAZE.Skills.' skill '.hint')}}">{{localize (concat 'STARGAZE.Skills.' skill '.name')}}</span>
+
+</div>

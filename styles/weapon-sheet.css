@@ -1,0 +1,97 @@
+/* === Weapon Sheet Layout === */
+
+/* Clear */
+
+.weapon-sheet * {
+  all: initial;
+}
+
+/* Layout */
+
+.weapon-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 300px;
+}
+
+.weapon-sheet .weapon-header {
+  flex: 0;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.weapon-sheet .weapon-header .weapon-name {
+  flex: 1;
+}
+
+.weapon-sheet .weapon-range {
+  flex: 0;
+  height: 100%;
+}
+
+.weapon-sheet .weapon-range .header{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.weapon-sheet .weapon-range .value{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Weapon Info */
+
+.weapon-sheet .weapon-info {
+  flex: 1;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.weapon-sheet .weapon-info-left{
+  flex: 0;
+
+  display: grid;
+  grid-template:
+    "a b" auto
+    "c d" auto
+    "e e" auto
+    "f f" 1fr / 100px 1fr;
+}
+
+.weapon-sheet .weapon-info-left .a{ grid-area: a; }
+.weapon-sheet .weapon-info-left .b{ grid-area: b; }
+.weapon-sheet .weapon-info-left .c{ grid-area: c; }
+.weapon-sheet .weapon-info-left .d{ grid-area: d; }
+.weapon-sheet .weapon-info-left .e{ grid-area: e; }
+.weapon-sheet .weapon-info-left .f{ grid-area: f; margin-top: 20px; }
+
+.weapon-sheet .weapon-info-right{
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.weapon-sheet .weapon-info-right textarea{
+  flex-grow: 1;
+  resize: none;
+}
+
+/* Weapon Range Table */
+
+.weapon-sheet .weapon-range {
+}
+
+.weapon-sheet .weapon-range .header {
+}
+
+.weapon-sheet .weapon-range .value{
+}

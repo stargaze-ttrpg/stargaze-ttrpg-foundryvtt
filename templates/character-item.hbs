@@ -1,0 +1,52 @@
+<div class="character-item"
+  data-item-id="{{id}}"
+  data-item-type="{{type}}"
+  data-collapsed="{{flags.stargaze.collapsed}}"
+  draggable="true"
+>
+
+  <div class="item-header">
+    <span class="item-name">{{name}}</span>
+
+    <div class="item-actions">
+      {{#if (eq type "weapon")}}
+      <button class="stargaze icon" type="button" data-action="weapon-attack" title="Атака">A</button>
+      {{/if}}
+      <button class="stargaze icon" type="button" data-action="item-share" title="В чат">S</button>
+      <button class="stargaze icon" type="button" data-action="item-collapse" title="Скрыть">H</button>
+    </div>
+
+    <div class="item-controls">
+      <button class="stargaze icon" type="button" data-action="item-edit" title="Редактировать">E</button>
+      <button class="stargaze icon" type="button" data-action="item-delete" title="Удалить">X</button>
+    </div>
+  </div>
+
+  <div class="item-content">
+    {{#if (eq type "action")}}
+      {{> "systems/stargaze/templates/action-card.hbs"}}
+    {{/if}}
+    {{#if (eq type "chemical")}}
+      {{> "systems/stargaze/templates/chemical-card.hbs"}}
+    {{/if}}
+    {{#if (eq type "gear")}}
+      {{> "systems/stargaze/templates/gear-card.hbs"}}
+    {{/if}}
+    {{#if (eq type "implant")}}
+      {{> "systems/stargaze/templates/implant-card.hbs"}}
+    {{/if}}
+    {{#if (eq type "property")}}
+      {{> "systems/stargaze/templates/property-card.hbs"}}
+    {{/if}}
+    {{#if (eq type "psionics")}}
+      {{> "systems/stargaze/templates/psionics-card.hbs"}}
+    {{/if}}
+    {{#if (eq type "script")}}
+      {{> "systems/stargaze/templates/script-card.hbs"}}
+    {{/if}}
+    {{#if (eq type "weapon")}}
+      {{> "systems/stargaze/templates/weapon-card.hbs"}}
+    {{/if}}
+  </div>
+
+</div>

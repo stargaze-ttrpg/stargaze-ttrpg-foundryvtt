@@ -1,0 +1,21 @@
+.weapon-roll{
+  display: flex;
+  flex-direction: column;
+}
+
+.weapon-roll .roll-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.weapon-roll .roll-header_damage{
+  margin-left: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.weapon-roll .weapon-damage{
+  height: 70%;
+}

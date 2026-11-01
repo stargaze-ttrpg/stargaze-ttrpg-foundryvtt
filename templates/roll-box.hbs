@@ -1,0 +1,11 @@
+{{#if roll.total}}
+<div class="stargaze roll-box {{class}} {{critClass roll}}"
+    data-tooltip-direction="LEFT"
+    data-tooltip="<p>{{roll.result}}<br/>{{roll.formula}}</p>"
+>
+    <p class="stargaze roll-box_value">{{roll.total}}</p>
+    <p class="stargaze roll-box_title">{{title}}</p>
+</div>
+{{else}}
+
+{{/if}}

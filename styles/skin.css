@@ -1,90 +1,431 @@
-/* === Skin === */
+/* #region === Generic Elements === */
 
-@font-face {
-  font-family: "Cascadia Code";
-  src: url("../fonts/CascadiaCode.woff2") format("woff2");
-}
-
-.mysheet * {
-  all: unset;
-  box-sizing: border-box;
-}
-
-.mysheet {
+:root {
   --bg: #0a0a0a;
+
+  --background-normal: #111;
+  --background-bright: #222;
+
   --border: #333;
   --border-bright: #666;
-  --text: #ccc;
+
   --text-bright: #eee;
+  --text-basic: #ccc;
   --text-muted: #777;
+  --text-very-muted: #7775;
+
   --font-small: 10px;
   --font-medium: 14px;
   --font-large: 16px;
+
   --bg-size: 75px;
   --expr-bg-size: 60px;
   --expr-border: 20px;
 
+  --color-good: rgb(0, 130, 0);
+  --color-bad: rgb(130, 0, 0);
+
   font-family: "Cascadia Code", Consolas, monospace;
   font-size: var(--font-medium);
-  color: var(--text);
+  color: var(--text-basic);
+  background: var(--bg);
+  /* display: block; - Кажется не нужно */
+}
+
+/* Generic Labels */
+
+label.stargaze.subtitle{
+  display: block;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: var(--font-medium);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  border: none;
+  border-bottom: solid 1px var(--border);
+}
+
+/* Generic Inputs */
+
+input.stargaze.title{
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: var(--font-large);
+  color: var(--text-bright);
+  text-transform: uppercase;
+
+  border: none;
+  border-bottom: 1px solid var(--border-bright);
+}
+
+input.stargaze.subtitle{
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: var(--font-medium);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  border: none;
+}
+
+select.stargaze.border_input,
+input.stargaze.border_input{
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: var(--font-medium);
+  color: var(--text-basic);
+
+  border: 1px solid var(--text-bright);
+  margin: 2.5px;
+  padding: 2.5px;
+}
+
+select.stargaze.no_border_input,
+input.stargaze.no_border_input{
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: var(--font-medium);
+  color: var(--text-basic);
+}
+
+
+/* Generic Text Area */
+
+.stargaze.textarea1{
+  display: block;
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 10px;
+  padding-bottom: -20px;
+  background-color: #111;
+}
+
+.stargaze.textarea1 > label{
+  display: block;
+  box-sizing: border-box;
+
+  width: 100%;
+  height: 20px;
+
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: var(--font-medium);
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.stargaze.textarea1 > textarea{
+  display: block;
+  box-sizing: border-box;
+  
+  width: 100%;
+  height: calc(100% - 30px);
+
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: var(--font-medium);
+  color: var(--text-basic);
+  resize: none;
+  color: red;
+}
+
+/* Generic Table - Small Table */
+
+table.stargaze.smalltable {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+table.stargaze.smalltable thead {
+  display: table-header-group;
+  background: none;
+}
+
+table.stargaze.smalltable tbody {
+  display: table-row-group;
+  background: none;
+}
+
+table.stargaze.smalltable tr {
+  display: table-row;
+  background: none;
+}
+
+table.stargaze.smalltable {
+  border-top: 2px solid #555;
+  border-bottom: 2px solid #555;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+table.stargaze.smalltable th {
+  display: table-cell;
+  vertical-align: middle;
+  height: 10px !important;
+  padding: 0;
+
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: var(--font-small);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  text-align: center;
+
+  border-left: 1px dashed #333;
+  border-right: 1px dashed #333;
+}
+
+table.stargaze.smalltable td {
+  display: table-cell;
+  vertical-align: middle;
+  height: 10px !important;
+  padding: 0;
+
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: var(--font-medium);
+  color: var(--text-basic);
+  text-transform: uppercase;
+  text-align: center;
+
+  border-left: 1px dashed #333;
+  border-right: 1px dashed #333;
+}
+
+table.stargaze.smalltable td input {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Generic Buttons */
+
+button.stargaze.icon{
+  color: gray;
+}
+
+button.stargaze.icon:hover{
+  color: lightgray;
+}
+
+button.stargaze.icon:active{
+  color: white;
+}
+
+/* Generic Roll Box */
+
+.stargaze.roll-box {
+  width: 65px;
+  height: 65px;
+  margin: 2.5px;
+  background-color: rgb(10, 10, 10);
+  border: 1px solid var(--border);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stargaze.roll-box_value {
+  margin: 0;
+
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: var(--font-medium);
+  color: var(--text-basic);
+}
+
+.stargaze.roll-box.crit20 .stargaze.roll-box_value { color: var(--color-good); font-weight: bold; }
+.stargaze.roll-box.crit1 .stargaze.roll-box_value { color: var(--color-bad); font-weight: bold; }
+
+.stargaze.roll-box_title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: var(--font-small);
+  color: var(--text-muted);
+}
+
+/* Tabs */
+
+.stargaze.sheet-tabs{
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.stargaze.sheet-tabs .item{
+  padding: 5px;
+  margin: 0px;
+
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+.stargaze.sheet-tabs .item:hover{
+}
+
+.stargaze.sheet-tabs .item:active{
+}
+
+.stargaze.sheet-tabs .item.active{
+  background-color: #222;
+}
+
+/* Scroll Bar */
+
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #cccccc33 #33333355 !important;
+}
+
+/* Generic Animations */
+
+.stargaze.animation.infinite-code {
+  position: relative;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+
+  color: var(--text-very-muted);
+  font-size: 8px;
+}
+
+.stargaze.animation.infinite-code::before {
+  content: var(--code-stream1);
+
+  position: absolute;
+  inset: 0 0 auto 0;
+  padding: 8px 12px;
+
+  white-space: pre;
+  will-change: transform;
+  animation: infinite-code-scroll 10s linear infinite;
+}
+
+.stargaze.animation.infinite-code.variation1::before { content: var(--code-stream1); }
+.stargaze.animation.infinite-code.variation2::before { content: var(--code-stream2); }
+.stargaze.animation.infinite-code.variation3::before { content: var(--code-stream3); }
+.stargaze.animation.infinite-code.variation4::before { content: var(--code-stream4); }
+.stargaze.animation.infinite-code.variation5::before { content: var(--code-stream5); }
+
+.stargaze.animation.infinite-code.speed1::before { animation-duration: 5s; }
+.stargaze.animation.infinite-code.speed2::before { animation-duration: 8s; }
+.stargaze.animation.infinite-code.speed3::before { animation-duration: 10s; }
+.stargaze.animation.infinite-code.speed4::before { animation-duration: 14s; }
+.stargaze.animation.infinite-code.speed5::before { animation-duration: 17s; }
+
+@keyframes infinite-code-scroll {
+  from { transform: translateY(-8px); }
+  to   { transform: translateY(-138px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stargaze.infinite-code::before {
+    animation: none;
+  }
+}
+
+
+
+/* #endregion === Generic Elements === */
+
+
+
+
+/* === Specific === */
+
+/* Weapon-Roll */
+
+.weapon-roll .attack-table th:first-child,
+.weapon-roll .attack-table td:first-child {
+  width: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.weapon-roll:has(.weapon-roll1:hover) .miss1 { color: var(--color-bad); }
+.weapon-roll:has(.weapon-roll1:hover) .hit1 { color: var(--color-good); }
+.weapon-roll:has(.weapon-roll2:hover) .miss2 { color: var(--color-bad); }
+.weapon-roll:has(.weapon-roll2:hover) .hit2 { color: var(--color-good); }
+
+.weapon-roll:has(.miss1:hover) .weapon-roll1 { outline: 2px solid var(--color-bad); }
+.weapon-roll:has(.hit1:hover) .weapon-roll1 { outline: 2px solid var(--color-good); }
+.weapon-roll:has(.miss2:hover) .weapon-roll2 { outline: 2px solid var(--color-bad); }
+.weapon-roll:has(.hit2:hover) .weapon-roll2 { outline: 2px solid var(--color-good); }
+
+.weapon-roll td:hover{
+  color: white !important;
+}
+
+/* Specific */
+
+
+/* #region === CharacterSheet === */
+
+:root,
+.character-sheet {
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: var(--font-medium);
+  color: var(--text-basic);
   background: var(--bg);
   display: block;
 }
-
-.mysheet div,
-.mysheet section,
-.mysheet header,
-.mysheet nav,
-.mysheet span,
-.mysheet label {
+/* 
+.character-sheet div,
+.character-sheet section,
+.character-sheet header,
+.character-sheet nav,
+.character-sheet span,
+.character-sheet label {
   display: block;
-}
+} */
 
-.mysheet input {
+.character-sheet input {
   font-family: inherit;
   font-size: inherit;
-  color: var(--text);
+  color: var(--text-basic);
   background: transparent;
   border: 1px solid var(--border);
   padding: 2px 4px;
   display: inline-block;
 }
 
-.mysheet input[type="number"] {
+.character-sheet input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
 
-.mysheet input[type="number"]::-webkit-outer-spin-button,
-.mysheet input[type="number"]::-webkit-inner-spin-button {
+.character-sheet input[type="number"]::-webkit-outer-spin-button,
+.character-sheet input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.mysheet input:focus {
+.character-sheet input:focus {
   outline: none;
   border-color: var(--border-bright);
   color: var(--text-bright);
 }
 
-.mysheet ::selection {
+.character-sheet ::selection {
   background: #fff;
   color: #000;
 }
 
-.mysheet .char-name {
+.character-sheet .char-name {
   font-size: var(--font-large);
-  font-weight: bold;
   text-transform: uppercase;
   border: none;
   border-bottom: 1px solid var(--border);
 }
 
-.mysheet .level {
+.character-sheet .level {
   text-align: center;
 }
 
-.mysheet .tab {
+.character-sheet .xxx {
   padding: 4px 8px;
   border: 1px solid var(--border);
   background: transparent;
@@ -95,62 +436,55 @@
   display: inline-block;
 }
 
-.mysheet .tab:hover {
+.character-sheet .xxx:hover {
   border-color: var(--border-bright);
-  color: var(--text);
+  color: var(--text-basic);
 }
 
-.mysheet .tab.active {
+.character-sheet .xxx.active {
   background: #1a1a1a;
   color: var(--text-bright);
   border-color: var(--border-bright);
 }
 
-.mysheet .stat {
+.character-sheet .stat {
   background: transparent;
   border: 1px solid var(--border);
 }
 
-.mysheet .stat label {
+.character-sheet .stat label {
   font-size: var(--font-small);
   color: var(--text-muted);
   text-transform: uppercase;
   cursor: pointer;
 }
 
-.mysheet .stat label:hover {
+.character-sheet .stat label:hover {
   color: var(--text-bright);
 }
 
-.mysheet .stat input,
-.mysheet .stat .expression_total {
+.character-sheet .stat input,
+.character-sheet .stat .expression_total {
   font-size: var(--font-medium);
-  font-weight: bold;
-  color: var(--text);
+  color: var(--text-basic);
   background: transparent;
   border: none;
 }
 
-.mysheet .resource-values input {
+.character-sheet .resource-values input.current {
   border: none;
   border-bottom: 1px solid var(--border);
   font-weight: bold;
   text-align: center;
 }
 
-.mysheet .resource-values .max {
-  font-size: var(--font-small);
-  opacity: 0.7;
-}
-
-.mysheet .attribute {
+.character-sheet .attribute {
   background: transparent;
   border: 1px solid var(--border);
   overflow: visible;
 }
 
-.mysheet .attribute header {
-  font-weight: bold;
+.character-sheet .attribute header {
   font-size: var(--font-medium);
   text-transform: uppercase;
   padding: 4px 6px;
@@ -158,27 +492,27 @@
   background: #111;
 }
 
-.mysheet .attribute.body header { border-left: 10px solid #9c0c0c; }
-.mysheet .attribute.nerv header { border-left: 10px solid #bcb71f; }
-.mysheet .attribute.mind header { border-left: 10px solid #187db0; }
-.mysheet .attribute.psyc header { border-left: 10px solid #860b8a; }
-
-.mysheet .attributes,
-.mysheet .attribute,
-.mysheet .skills,
-.mysheet .skill {
+.character-sheet .attribute.body header { border-left: 10px solid #9c0c0c; }
+.character-sheet .attribute.nerv header { border-left: 10px solid #bcb71f; }
+.character-sheet .attribute.mind header { border-left: 10px solid #187db0; }
+.character-sheet .attribute.psyc header { border-left: 10px solid #860b8a; }
+/* 
+.character-sheet .attributes,
+.character-sheet .attribute,
+.character-sheet .skills,
+.character-sheet .skill {
   overflow: visible;
-}
+} */
 
-.mysheet .skill {
+.character-sheet .skill {
   font-size: var(--font-medium);
 }
 
-.mysheet .expression {
+.character-sheet .expression {
   position: relative;
 }
 
-.mysheet .expression::after {
+.character-sheet .expression::after {
   content: "";
   position: absolute;
   left: 0;
@@ -187,7 +521,7 @@
   height: 12px;
 }
 
-.mysheet .expression_edit {
+.character-sheet .expression_edit {
   position: absolute;
   left: 50%;
   top: 100%;
@@ -205,7 +539,7 @@
   background: #111;
 }
 
-.mysheet .expression_edit::before {
+.character-sheet .expression_edit::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -218,38 +552,38 @@
   z-index: -1;
 }
 
-.mysheet .expression_mod {
+.character-sheet .expression_mod {
   width: 40px;
   text-align: center;
   background: transparent;
   border: none;
-  color: var(--text);
+  color: var(--text-basic);
   font-size: var(--font-medium);
   font-weight: bold;
 }
 
-.mysheet .expression_str {
+.character-sheet .expression_str {
   font-size: var(--font-small);
   color: var(--text-muted);
   white-space: nowrap;
   display: block;
 }
 
-.mysheet .expression_total {
+.character-sheet .expression_total {
   width: 28px;
   text-align: center;
   display: inline-block;
   font-size: var(--font-medium);
   font-weight: bold;
-  color: var(--text);
+  color: var(--text-basic);
   transition: opacity 0.15s;
 }
 
-.mysheet .expression:hover .expression_total {
+.character-sheet .expression:hover .expression_total {
   opacity: 0.4;
 }
 
-.mysheet .expression:hover .expression_edit {
+.character-sheet .expression:hover .expression_edit {
   opacity: 1;
   pointer-events: auto;
 }
@@ -259,42 +593,207 @@
   100% { background-position: var(--expr-bg-size) var(--expr-bg-size); }
 }
 
-.mysheet .interactive_button {
+.character-sheet .interactive_button {
   cursor: pointer;
   text-transform: uppercase;
   display: inline;
 }
 
-.mysheet .interactive_button:hover {
+.character-sheet .interactive_button:hover {
   color: var(--text-bright);
 }
 
-.mysheet .panel {
-  background: transparent;
-  border: 1px solid var(--border);
-}
-
-.mysheet .panel h3 {
-  font-size: var(--font-medium);
-  font-weight: bold;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  border-bottom: 1px solid var(--border);
-  margin: -6px -6px 6px -6px;
-  padding: 6px 8px;
-  background: #111;
-  display: block;
-}
-
-.mysheet .item {
+.character-sheet .item {
   background: #111;
   border: 1px solid var(--border);
   font-size: var(--font-medium);
-  color: var(--text);
+  color: var(--text-basic);
   display: block;
 }
 
-.mysheet .item:hover {
+.character-sheet .item:hover {
   border-color: var(--border-bright);
   color: var(--text-bright);
+}
+
+/* Character Items List */
+
+.character-sheet .items-list {
+  background: none;
+  border: 1px solid var(--border);
+}
+
+.character-sheet .items-list .items-list__name {
+  font-size: var(--font-medium);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 4px;
+  background: #111;
+}
+
+.character-sheet .items-list .items-list__container{
+  box-sizing: border-box;
+}
+
+/* Character Items */
+
+.character-sheet .character-item {
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  background-color: var(--background-normal);
+
+  padding: 5px;
+  margin: 0px;
+}
+
+.character-sheet .character-item:hover {
+  border: 1px solid var(--border-bright);
+  background-color: var(--background-bright);
+}
+
+.character-sheet .item-header {
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: var(--font-medium);
+  color: var(--text-basic);
+  text-transform: uppercase;
+}
+
+.character-sheet .item-header .item-name {
+
+}
+
+.character-sheet .item-header .item-actions { 
+}
+
+.character-sheet .item-header .item-controls { 
+}
+
+.character-sheet .character-item[data-collapsed="false"] .item-header{
+  margin-bottom: 10px; /* должно быть на .item-content без условий, но заглючило из-за unset-а. */
+}
+
+/* #endregion === CharacterSheet === */
+
+
+/* #region === Weapon Card === */
+
+.weapon-card { 
+}
+
+.weapon-card .weapon-range {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.weapon-card .properties {
+  margin-top: 10px;
+}
+
+.weapon-card .damage-label,
+.weapon-card .damage-value,
+.weapon-card .damage-type,
+.weapon-card .properties {
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: var(--font-medium);
+  color: var(--text-basic);
+}
+
+.weapon-card .damage-value{
+  margin-left: 10px;
+  margin-right: 10px;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+/* #endregion === Weapon Card === */
+
+:root {
+  --code-stream1: var(--code-chunk1) var(--code-chunk1);
+  --code-stream2: var(--code-chunk2) var(--code-chunk2);
+  --code-stream3: var(--code-chunk3) var(--code-chunk3);
+  --code-stream4: var(--code-chunk4) var(--code-chunk4);
+  --code-stream5: var(--code-chunk5) var(--code-chunk5);
+
+  --code-chunk1:
+    "const data = await fetch('/api/telemetry');\A"
+    "if (!packet.valid) return retry(packet);\A"
+    "fn decode(buf: &[u8]) -> Result<Frame> {\A"
+    "  stream.push(Frame { id, payload });\A"
+    "}\A"
+    "while (queue.len() > 0) { process(queue.pop()); }\A"
+    "SELECT id, ts FROM events WHERE ts > now() - 1h;\A"
+    "for (const node of cluster.nodes) node.ping();\A"
+    "return { ok: true, latency: 12 };\A"
+    "grep -R \"secret\" ./config | wc -l\A"
+    "docker compose up -d --scale worker=4\A"
+    "hash = sha256(salt + input);\A"
+    "emit('sync:done', { count: rows.length });\A";
+
+  --code-chunk2:
+    "01001000 01100101 01101100 01101100 01101111\A"
+    "10110101 11001010 00110111 10001100 01010011\A"
+    "00011110 11100001 01010101 10101010 00110011\A"
+    "11001100 00110011 10011001 01100110 11110000\A"
+    "01010101 10101010 01010101 10101010 11111111\A"
+    "00100100 01001000 10010010 00100100 01001000\A"
+    "11110000 00001111 11000011 00111100 10100101\A"
+    "01101001 10010110 01101001 10010110 01011010\A"
+    "10000001 01000010 00100100 00011000 00011000\A"
+    "00111100 01111110 11111111 01111110 00111100\A"
+    "10101010 01010101 11001100 00110011 11110000\A"
+    "00000000 11111111 00000000 11111111 10101010\A"
+    "01011010 10100101 01011010 10100101 00111100\A";
+
+  --code-chunk3:
+    "550e8400-e29b-41d4-a716-446655440000\A"
+    "6ba7b810-9dad-11d1-80b4-00c04fd430c8\A"
+    "6ba7b811-9dad-11d1-80b4-00c04fd430c8\A"
+    "6ba7b812-9dad-11d1-80b4-00c04fd430c8\A"
+    "6ba7b814-9dad-11d1-80b4-00c04fd430c8\A"
+    "f47ac10b-58cc-4372-a567-0e02b2c3d479\A"
+    "123e4567-e89b-12d3-a456-426614174000\A"
+    "123e4567-e89b-12d3-a456-426614174001\A"
+    "c9bf9e57-1685-4c89-bafb-ff5af830be8a\A"
+    "a3bb189e-8bf9-3888-9912-ace4e6543002\A"
+    "9c858901-8a57-4791-81fe-4c455b099bc9\A"
+    "d1e8a3b0-5f2c-4e7a-9b1d-3c8f7e2a6b4d\A"
+    "0f8fad5b-d9cb-469f-a165-70867728950e\A";
+
+  --code-chunk4:
+    "192.168.0.1     → 10.0.0.42\A"
+    "172.16.254.1    → 172.16.254.99\A"
+    "10.10.10.10     → 10.10.10.1\A"
+    "203.0.113.7     → 198.51.100.23\A"
+    "8.8.8.8         → 8.8.4.4\A"
+    "1.1.1.1         → 1.0.0.1\A"
+    "127.0.0.1       → 0.0.0.0\A"
+    "255.255.255.0   → 255.255.255.255\A"
+    "192.0.2.146     → 198.51.100.7\A"
+    "100.64.0.1      → 100.127.255.254\A"
+    "169.254.1.1     → 169.254.255.254\A"
+    "224.0.0.1       → 239.255.255.250\A"
+    "203.0.113.195   → 192.0.2.44\A";
+
+  --code-chunk5:
+    "AF13 BBC4 7E22 91D0 3C8A 55F1\A"
+    "0F9B C2D4 8E71 44AA B6C3 12D5\A"
+    "5E80 F1A3 2D9C 7B04 E6F2 39A8\A"
+    "C4D7 0A1E 9B3F 6C52 8D71 20E4\A"
+    "1F3A B8E5 4D02 7C69 A1F4 5B8D\A"
+    "E7C2 3F90 A5B6 1D48 6E73 C0F1\A"
+    "2B9F 8C14 D7E0 4A35 F18B 6D22\A"
+    "93AE 5F0C B2D7 8E41 A6B5 3C09\A"
+    "6D14 F8B3 0C27 9E5A B4F1 8C63\A"
+    "B0C5 7A2E 1F94 D6B8 3E07 5AFC\A"
+    "4E91 C3F6 8B0D 2A75 D5E8 1B40\A"
+    "8A2D F5C0 3B16 9E74 C1B8 6F03\A"
+    "F1E7 0B3A 6C85 D4F2 9A1E 2B57\A";
 }

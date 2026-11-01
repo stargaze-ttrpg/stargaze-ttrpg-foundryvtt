@@ -1,0 +1,413 @@
+/* === Layout === */
+
+.character-sheet *:not(nav, nav *) {
+  all: unset;
+}
+
+.character-sheet {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 800px;
+
+  --attributes-width: 300px;
+}
+
+.character-sheet .sheet {
+  min-width: 800px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.character-sheet .sheet-header {
+  flex-shrink: 0;
+  margin-bottom: 10px;
+}
+
+.character-sheet .header-top {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.character-sheet .char-name { width: 200px; }
+.character-sheet .level { width: 40px; }
+.character-sheet .class { width: 90px; }
+
+.character-sheet .tabs {
+  margin-left: auto;
+  display: flex;
+  gap: 4px;
+}
+
+.character-sheet .header-stats {
+  display: flex;
+  gap: 6px;
+  justify-content: space-between;
+}
+
+.character-sheet .left-stats,
+.character-sheet .right-stats {
+  display: flex;
+  gap: 6px;
+}
+
+.character-sheet .sheet-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.character-sheet .sheet-body > .tab {
+  display: none;
+}
+
+.character-sheet .sheet-body > .tab.active {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+/* === Main tab === */
+
+.character-sheet .main {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.character-sheet .attributes {
+  flex: 0 0 var(--attributes-width);
+  width: var(--attributes-width);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.character-sheet .main-lists {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--attributes-width) + 10px);
+  right: 0;
+  display: flex;
+  gap: 10px;
+  min-height: 0;
+}
+
+.character-sheet .properties,
+.character-sheet .actions {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.character-sheet .inventories {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "ship  self weapons"
+    "stock self weapons";
+  gap: 8px;
+}
+
+.character-sheet .inventories .inventory_ship    { grid-area: ship; }
+.character-sheet .inventories .inventory_stock   { grid-area: stock; }
+.character-sheet .inventories .inventory_self    { grid-area: self; }
+.character-sheet .inventories .inventory_weapons { grid-area: weapons; }
+
+/* === Items lists (shared) === */
+
+.character-sheet .items-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.character-sheet .items-list .items-list__name {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.character-sheet .items-list .items-list__container {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.character-sheet .items-list .character-item {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.character-sheet .items-list .character-item .item-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.character-sheet .items-list .character-item .item-header .item-actions {
+  margin-left: auto;
+}
+
+.character-sheet .items-list .character-item .item-header .item-controls {
+  margin-left: 20px;
+}
+
+.character-sheet .items-list .character-item[data-collapsed="true"] .item-content {
+  display: none;
+}
+
+/* === Stats === */
+
+.character-sheet .stat {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2px;
+  position: relative;
+}
+
+.character-sheet .stat label {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+}
+
+.character-sheet .resource-values {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.character-sheet .resource-values input {
+  width: 36px;
+  text-align: center;
+}
+
+/* === Attributes / Skills === */
+
+.character-sheet .attribute header {
+  display: flex;
+  align-items: center;
+  padding: 2px 4px;
+}
+
+.character-sheet .skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  padding: 4px;
+}
+
+.character-sheet .skill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.character-sheet .skill-name {
+  flex: 1;
+}
+
+/* === Dossier === */
+
+.character-sheet .dossier {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr 1fr;
+  grid-template-areas:
+    "picture decoration appearance"
+    "temper   notes       goals"
+    "temper   notes       owns";
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
+  padding: 8px;
+}
+
+.character-sheet .dossier-picture {
+  grid-area: picture;
+  cursor: pointer;
+  min-height: 120px;
+}
+
+.character-sheet .dossier-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.character-sheet .dossier-decoration {
+  grid-area: decoration;
+  min-height: 80px;
+}
+
+.character-sheet .dossier-appearance { grid-area: appearance; }
+.character-sheet .dossier-temper     { grid-area: temper; }
+.character-sheet .dossier-notes      { grid-area: notes; }
+.character-sheet .dossier-goals      { grid-area: goals; }
+.character-sheet .dossier-owns       { grid-area: owns; }
+
+.character-sheet .dossier-field {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.character-sheet .dossier-field textarea {
+  flex: 1;
+  resize: none;
+  min-height: 60px;
+}
+
+/* === Augments === */
+
+.character-sheet .augments {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "icon-body icon-nerv icon-mind icon-psyc"
+    "list-body list-nerv list-mind list-psyc";
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
+  padding: 8px;
+}
+
+.character-sheet .augment-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  font-size: 28px;
+}
+
+.character-sheet .augment-body { grid-area: icon-body; }
+.character-sheet .augment-nerv { grid-area: icon-nerv; }
+.character-sheet .augment-mind { grid-area: icon-mind; }
+.character-sheet .augment-psyc { grid-area: icon-psyc; }
+
+.character-sheet .implants_body { grid-area: list-body; }
+.character-sheet .implants_nerv { grid-area: list-nerv; }
+.character-sheet .implants_mind { grid-area: list-mind; }
+.character-sheet .implants_psyc { grid-area: list-psyc; }
+
+/* === Abilities === */
+
+.character-sheet .abilities {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  padding: 8px;
+}
+
+.character-sheet .abilities > .tabs {
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.character-sheet .abilities-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.character-sheet .abilities-body > .tab {
+  display: none;
+  flex: 1;
+  min-height: 0;
+}
+
+.character-sheet .abilities-body > .tab.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.character-sheet .scripts-grid,
+.character-sheet .chemicals-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
+}
+
+.character-sheet .psionics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
+}
+
+.character-sheet .scripts-header,
+.character-sheet .components,
+.character-sheet .psionics-h_nt,
+.character-sheet .psionics-icons {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.character-sheet .psy-icon {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #666;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.character-sheet .psy-icon.psy-active {
+  background: #4a90e2;
+  border-color: #4a90e2;
+}
+
+/* === Skill Roll === */
+
+.character-skill-roll {
+  display: flex;
+  flex-direction: row;
+}
+
+.character-skill-roll .animation {
+  flex: 1;
+  height: 65px;
+}

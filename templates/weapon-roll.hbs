@@ -1,0 +1,47 @@
+<div class="weapon-roll">
+
+  <div class="roll-header">
+    {{> "systems/stargaze/templates/roll-box.hbs" roll = roll1 title = "Попадание" class = "weapon-roll1 a"}}
+    {{> "systems/stargaze/templates/roll-box.hbs" roll = roll2 title = "Попадание" class = "weapon-roll2 b"}}
+    <div class="roll-header_damage">
+      {{> "systems/stargaze/templates/roll-box.hbs" roll = damage1 title = damageType1 class = "weapon-damage weapon-damage1 c"}}
+      {{> "systems/stargaze/templates/roll-box.hbs" roll = damage2 title = damageType2 class = "weapon-damage weapon-damage2 d"}}
+    </div>
+  </div>
+
+  <table class="attack-table stargaze smalltable e">
+    <tr>
+      <th></th>
+      <th>0-10 м.</th>
+      <th>11-15 м</th>
+      <th>16-30 м.</th>
+      <th>31-100 м.</th>
+    </tr>
+
+    <tr title="За укрытием">
+      <td class="row-label" data-tooltip-direction="LEFT" data-tooltip="TOOLTIP.Weapon.CoverHit">N</td>
+      {{#each table.cover}}
+      <td class="{{#if hit1}}hit1{{else}}miss1{{/if}} {{#if hit2}}hit2{{else}}miss2{{/if}}">{{dc}}</td>
+      {{/each}}
+    </tr>
+
+    <tr title="В голову">
+      <td class="row-label" data-tooltip-direction="LEFT" data-tooltip="TOOLTIP.Weapon.HeadHit">H</td>
+      {{#each table.aimed}}
+      <td class="{{#if hit1}}hit1{{else}}miss1{{/if}} {{#if hit2}}hit2{{else}}miss2{{/if}}">{{dc}}</td>
+      {{/each}}
+    </tr>
+
+    <tr title="Обычное">
+      <td class="row-label" data-tooltip-direction="LEFT" data-tooltip="TOOLTIP.Weapon.BaseHit">B</td>
+      {{#each table.normal}}
+      <td class="{{#if hit1}}hit1{{else}}miss1{{/if}} {{#if hit2}}hit2{{else}}miss2{{/if}}">{{dc}}</td>
+      {{/each}}
+    </tr>
+  </table>
+
+  {{#if properties}}
+  <div class="attack-properties f">{{properties}}</div>
+  {{/if}}
+
+</div>

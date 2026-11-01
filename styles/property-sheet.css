@@ -1,0 +1,21 @@
+/* === Weapon Sheet Layout === */
+
+/* Clear */
+
+.property-sheet * {
+  all: initial;
+}
+
+/* Layout */
+
+.property-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 300px;
+}
+
+.property-sheet textarea{
+  flex-grow: 1;
+  resize: none;
+}

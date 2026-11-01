@@ -1,12 +1,13 @@
 const ItemSheetBase = foundry.appv1?.sheets?.ItemSheet ?? ItemSheet;
 
-export class ItemSheet extends ItemSheetBase {
+export class PsionicsSheet extends ItemSheetBase {
+
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["mysystem", "sheet", "item"],
-      template: "systems/stargaze/templates/item.hbs",
-      width: 420,
-      height: 360
+      classes: ["stargaze", "sheet", "psionics"],
+      template: "systems/stargaze/templates/psionics-sheet.hbs",
+      width: 400,
+      height: 200
     });
   }
 
@@ -15,4 +16,5 @@ export class ItemSheet extends ItemSheetBase {
     context.system = this.item.system;
     return context;
   }
+
 }

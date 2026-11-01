@@ -1,0 +1,16 @@
+<form class="{{cssClass}} property-sheet" autocomplete="off">
+
+  <input class="property-name stargaze title" type="text" name="name" value="{{item.name}}" placeholder="Название">
+  <input class="property-subtype stargaze subtitle" type="text" name="system.subtype" value="{{system.subtype}}" placeholder="Тип">
+  <select name="system.slot">
+    <option value="body" {{#if (eq system.slot "body")}}selected{{/if}}>Тело</option>
+    <option value="nerv" {{#if (eq system.slot "nerv")}}selected{{/if}}>Нервы</option>
+    <option value="mind" {{#if (eq system.slot "mind")}}selected{{/if}}>Разум</option>
+    <option value="psyc" {{#if (eq system.slot "psyc")}}selected{{/if}}>Психика</option>
+  </select>
+  <div class="property-info stargaze textarea1">
+      <label>Описание</label>
+      <textarea name="system.description" placeholder="Описание">{{system.description}}</textarea>
+  </div>
+
+</form>

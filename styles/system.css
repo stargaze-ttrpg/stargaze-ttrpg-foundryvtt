@@ -6,61 +6,9 @@
 }
 
 :root{
-  --background-dark: #000000;
-  --background-bright: #161616;
-
   --text-dark: #222222;
   --text-bright: #ccc;
   --text-black: #000000;
-}
-
-/* Chat */
-.chat-message {
-  background: #111;
-  border: 1px solid;
-  border-left-width: 3px;
-  border-top-color: #333;
-  border-right-color: #333;
-  border-bottom-color: #333;
-  border-radius: 0;
-  color: #ccc;
-  font-family: "Cascadia Code", Consolas, monospace;
-  font-size: 14px;
-  padding: 6px 8px;
-  margin-bottom: 4px;
-}
-
-.chat-message .message-header {
-  font-family: "Cascadia Code", Consolas, monospace;
-  text-transform: uppercase;
-}
-
-.chat-message .message-sender {
-  font-size: 14px;
-  font-weight: bold;
-  color: #eee;
-}
-
-.chat-message .message-timestamp {
-  font-size: 10px;
-  color: #777;
-}
-
-/* Context menu */
-#context-menu {
-  background: #111;
-  border: 1px solid #333;
-}
-
-#context-menu .context-item {
-  color: #ccc;
-  font-family: "Cascadia Code", Consolas, monospace;
-  font-size: 12px;
-}
-
-#context-menu .context-item:hover {
-  background: #1a1a1a;
-  color: #eee;
 }
 
 /* Tooltip */
@@ -93,7 +41,7 @@ label {
 
 
 
-/* Windows */
+/* === Windows === */
 
 .window-app .window-header,
 .window-app .window-header h4.window-title,
@@ -115,7 +63,7 @@ label {
 
   width: 100% !important;
   height: 28px !important;
-  background-color: var(--background-bright) !important;
+  background-color: #151515 !important;
 }
 
 .window-app .window-header h4.window-title,
@@ -131,6 +79,9 @@ label {
 
 .window-app .window-header h4.window-title{
   flex: 1 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
 }
 
 .window-app .window-header a.header-button{
@@ -141,9 +92,196 @@ label {
   border: none !important;
   box-shadow: none !important;
   background: none !important;
-  background-color: black !important;
+  background-color: var(--bg) !important;
+  padding: 15px;
 }
 
 .window-app .window-resizable-handle {
 
 }
+
+/* Минимализация */
+
+.window-app.minimized .window-header > h4.window-title,
+.window-app.minimized .window-header > a.close {
+    display: block !important;
+}
+.window-app.minimized .window-header > * {
+    display: none !important;
+}
+
+/* Анимация */
+
+
+
+/* === Application === */
+
+.application.stargaze.sheet {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.application.stargaze.sheet .window-header {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  background: var(--background-bright) !important;
+}
+
+.application.stargaze.sheet .window-header .window-title {
+  font-family: "Cascadia Code", Consolas, monospace !important;
+  font-style: normal !important;
+  font-size: 14px !important;
+
+  text-transform: uppercase !important;
+  color: var(--text-bright) !important;
+}
+
+.application.stargaze.sheet .window-header .header-control {
+  border-radius: 0;
+  background: none !important;
+}
+
+.application.stargaze.sheet .window-header .header-control:hover {
+  border-radius: 0;
+  background: none !important;
+  background-color: #626262 !important;
+}
+
+.application.stargaze.sheet .window-content {
+  background: none !important;
+  background-color: black !important;
+}
+
+.application.stargaze.sheet .window-content > form {
+  overflow: hidden auto !important;
+}
+
+
+/* === Chat === */
+
+.chat-message {
+  background: #111;
+  border: 1px solid;
+  border-left-width: 3px;
+  border-top-color: #333 !important;
+  border-right-color: #333 !important;
+  border-bottom-color: #333 !important;
+  border-radius: 0;
+  color: #ccc;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 6px 8px;
+  margin-bottom: 4px;
+}
+
+.chat-message .message-header {
+  text-transform: uppercase;
+}
+
+.chat-message .message-sender {
+  font-size: 14px;
+  color: #eee;
+}
+
+.chat-message .message-timestamp {
+  font-size: 10px;
+  color: #626262;
+}
+
+.chat-message .message-content {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.chat-message .message-item{
+  /* border: 1px dashed gray; */
+}
+.chat-message .message-item-header{
+}
+.chat-message .message-item-link{
+  color: var(--color-dark-4);
+  text-transform: uppercase;
+}
+.chat-message .message-item-content{
+}
+
+
+/* === Context Menu === */
+
+#context-menu {
+  background: #111;
+  border: 1px solid #333;
+}
+
+#context-menu .context-item {
+  color: #ccc;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 12px;
+}
+
+#context-menu .context-item:hover {
+  background: #1a1a1a;
+  color: #eee;
+}
+
+.context-menu{
+
+}
+
+/* menu li              i span */
+
+
+/* === Autocomplete Menu === */
+
+.sa-autocomplete {
+  /* Базовая геометрия — обязательна, иначе меню не будет floating */
+  position: fixed;
+  left: var(--sa-left, 0);
+  top: var(--sa-top, 0);
+  min-width: var(--sa-width, auto);
+
+  /* Сброс дефолтов ul */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  /* Внешний вид — настраивайте под себя */
+  background: #fff;
+  border: 1px solid #7a7971;
+  border-radius: 0px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10000;
+  font-family: inherit;
+  font-size: 14px;
+
+  /* Скрыто по умолчанию */
+  display: none;
+}
+
+.sa-autocomplete--open {
+  display: block;
+  background-color: #111;
+}
+
+.sa-autocomplete__item {
+  padding: 6px 10px;
+
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 14px;
+  color: #aaa;
+
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sa-autocomplete__item--active {
+  background-color: #222;
+}
+

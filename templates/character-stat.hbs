@@ -1,0 +1,21 @@
+<div class="stat {{stat}} {{#if (eq resource 'true')}}resource{{else}}expression{{/if}}" data-stat="{{stat}}">
+
+  <label class="stat-name" data-tooltip=
+   "{{localize (concat 'STARGAZE.Stats.' stat '.hint')}}">
+    {{localize (concat 'STARGAZE.Stats.' stat '.name')}}
+  </label>
+
+  {{#if (eq resource 'true')}}
+    <div class="resource-values">
+      <input type="number" class="current" name="system.{{stat}}.value" value="{{lookupNested system stat 'value'}}">
+      <input type="number" class="max" name="system.{{stat}}.max" value="{{lookupNested system stat 'max'}}">
+    </div>
+  {{else}}
+    <span class="expression_total">{{lookupNested system (concat stat 'Total')}}</span>
+    <div class="expression_edit">
+      <input class="expression_mod" type="number" name="system.{{stat}}" value="{{lookupNested system stat}}">
+        <span class="expression_str">{{lookupNested system (concat stat 'Expression')}}</span>
+    </div>
+  {{/if}}
+
+</div>

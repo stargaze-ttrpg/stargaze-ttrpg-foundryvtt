@@ -1,0 +1,35 @@
+<div class="property-card">
+  <table class="property-range stargaze smalltable a">
+    <thead>
+      <tr>
+        <th>0-10 м.</th>
+        <th>11-15 м.</th>
+        <th>16-30 м.</th>
+        <th>31-100 м.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{system.rangeClose}}</td>
+        <td>{{system.rangeMedium}}</td>
+        <td>{{system.rangeLong}}</td>
+        <td>{{system.rangeExtreme}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="damage-label b">Урон 1:</span>
+  <span class="damage-value c">{{system.damage1}}</span>
+  <span class="damage-type d">{{system.damageType1}}</span>
+
+  {{#if system.damage2}}
+  <span class="damage-label e">Урон 2:</span>
+  <span class="damage-value f">{{system.damage2}}</span>
+  <span class="damage-type g">{{system.damageType2}}</span>
+  {{/if}}
+
+  {{#if system.propertiesText}}
+  <div class="properties h">{{system.propertiesText}}</div>
+  {{/if}}
+
+</div>

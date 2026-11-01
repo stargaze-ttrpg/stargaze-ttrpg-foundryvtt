@@ -10,9 +10,35 @@
   "authors": [{ "name": "Author" }],
   "esmodules": ["stargaze.mjs"],
   "styles": [
-    "styles/character_sheet.css",
+    "styles/character-sheet.css",
+
     "styles/skin.css",
-    "styles/system.css"
+    "styles/system.css",
+
+    "styles/action-card.css",
+    "styles/action-sheet.css",
+
+    "styles/chemical-card.css",
+    "styles/chemical-sheet.css",
+
+    "styles/gear-card.css",
+    "styles/gear-sheet.css",
+
+    "styles/implant-card.css",
+    "styles/implant-sheet.css",
+
+    "styles/property-card.css",
+    "styles/property-sheet.css",
+
+    "styles/psionics-card.css",
+    "styles/psionics-sheet.css",
+
+    "styles/script-card.css",
+    "styles/script-sheet.css",
+
+    "styles/weapon-card.css",
+    "styles/weapon-sheet.css",
+    "styles/weapon-roll.css"
   ],
   "languages": [
     { "lang": "ru", "name": "Русский", "path": "lang/ru.json" },
@@ -23,10 +49,14 @@
       "character": {}
     },
     "Item": {
+      "action": {},
+      "chemical": {},
       "gear": {},
-      "weapon": {},
+      "implant": {},
+      "property": {},
+      "psionics": {},
       "script": {},
-      "implant": {}
+      "weapon": {}
     }
   },
   "grid": { "distance": 1, "units": "m" },

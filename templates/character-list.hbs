@@ -1,0 +1,8 @@
+<div class="items-list {{name}}">
+  <p   class="items-list__name" data-tooltip="{{localize (concat 'STARGAZE.Items.' name '.hint')}}">{{localize (concat 'STARGAZE.Items.' name '.name')}}</p>
+  <div class="items-list__container">
+    {{#each items}}
+      {{> "systems/stargaze/templates/character-item.hbs"}}
+    {{/each}}
+  </div>
+</div>

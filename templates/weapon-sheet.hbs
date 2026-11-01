@@ -1,0 +1,71 @@
+<form class="{{cssClass}} weapon-sheet" autocomplete="off">
+
+  <header class="weapon-header">
+    <input class="weapon-name stargaze title" type="text" name="name" value="{{item.name}}" placeholder="Название">
+  </header>
+
+  <table class="weapon-range stargaze smalltable">
+    <thead>
+      <tr>
+        <th>0-10 м.</th>
+        <th>11-15 м.</th>
+        <th>16-30 м.</th>
+        <th>31-100 м.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input class="stargaze no_border_input" type="number" name="system.rangeClose" value="{{system.rangeClose}}"></td>
+        <td><input class="stargaze no_border_input" type="number" name="system.rangeMedium" value="{{system.rangeMedium}}"></td>
+        <td><input class="stargaze no_border_input" type="number" name="system.rangeLong" value="{{system.rangeLong}}"></td>
+        <td><input class="stargaze no_border_input" type="number" name="system.rangeExtreme" value="{{system.rangeExtreme}}"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="weapon-info">
+
+    <div class="weapon-info-left">
+
+      <input class="damage-value a stargaze border_input" type="text" name="system.damage1" value="{{system.damage1}}">
+      <select name="system.damageType1" title="{{localize 'STARGAZE.Damage.default.h_nt'}}">
+        <option value="default" {{#if (eq system.damageType1 "default")}}selected{{/if}} title="{{localize 'STARGAZE.Damage.default.h_nt'}}">{{localize "STARGAZE.Damage.default.name"}}</option>
+        <option value="piercing" {{#if (eq system.damageType1 "piercing")}}selected{{/if}} title="{{localize 'STARGAZE.Damage.piercing.h_nt'}}">{{localize "STARGAZE.Damage.piercing.name"}}</option>
+        <option value="expansive" {{#if (eq system.damageType1 "expansive")}}selected{{/if}} title="{{localize 'STARGAZE.Damage.expansive.h_nt'}}">{{localize "STARGAZE.Damage.expansive.name"}}</option>
+        <option value="electric" {{#if (eq system.damageType1 "electric")}}selected{{/if}} title="{{localize 'STARGAZE.Damage.electric.h_nt'}}">{{localize "STARGAZE.Damage.electric.name"}}</option>
+        <option value="psychic" {{#if (eq system.damageType1 "psychic")}}selected{{/if}} title="{{localize 'STARGAZE.Damage.psychic.h_nt'}}">{{localize "STARGAZE.Damage.psychic.name"}}</option>
+        <option value="true" {{#if (eq system.damageType1 "true")}}selected{{/if}} title="{{localize 'STARGAZE.Damage.true.h_nt'}}">{{localize "STARGAZE.Damage.true.name"}}</option>
+        <option value="stamina" {{#if (eq system.damageType1 "stamina")}}selected{{/if}} title="{{localize 'STARGAZE.Damage.stamina.h_nt'}}">{{localize "STARGAZE.Damage.stamina.name"}}</option>
+      </select>
+
+      <input class="damage-value c stargaze border_input" type="text" name="system.damage2" value="{{system.damage2}}">
+      <select name="system.damageType2">
+        <option value="" {{#if (eq system.damageType2 "")}}selected{{/if}}>—</option>
+        <option value="default" {{#if (eq system.damageType2 "default")}}selected{{/if}} title="{{localize 'STARGAZE.Damage.default.h_nt'}}">{{localize "STARGAZE.Damage.default.name"}}</option>
+        <option value="piercing" {{#if (eq system.damageType2 "piercing")}}selected{{/if}} title="{{localize 'STARGAZE.Damage.piercing.h_nt'}}">{{localize "STARGAZE.Damage.piercing.name"}}</option>
+        <option value="expansive" {{#if (eq system.damageType2 "expansive")}}selected{{/if}} title="{{localize 'STARGAZE.Damage.expansive.h_nt'}}">{{localize "STARGAZE.Damage.expansive.name"}}</option>
+        <option value="electric" {{#if (eq system.damageType2 "electric")}}selected{{/if}} title="{{localize 'STARGAZE.Damage.electric.h_nt'}}">{{localize "STARGAZE.Damage.electric.name"}}</option>
+        <option value="psychic" {{#if (eq system.damageType2 "psychic")}}selected{{/if}} title="{{localize 'STARGAZE.Damage.psychic.h_nt'}}">{{localize "STARGAZE.Damage.psychic.name"}}</option>
+        <option value="true" {{#if (eq system.damageType2 "true")}}selected{{/if}} title="{{localize 'STARGAZE.Damage.true.h_nt'}}">{{localize "STARGAZE.Damage.true.name"}}</option>
+        <option value="stamina" {{#if (eq system.damageType2 "stamina")}}selected{{/if}} title="{{localize 'STARGAZE.Damage.stamina.h_nt'}}">{{localize "STARGAZE.Damage.stamina.name"}}</option>
+      </select>
+
+      <select class="attack-type e stargaze border_input" name="system.attackSkill">
+        <option value="rapidFire" {{#if (eq system.attackSkill "rapidFire")}}selected{{/if}}>Быстрая</option>
+        <option value="accurateFire" {{#if (eq system.attackSkill "accurateFire")}}selected{{/if}}>Точная</option>
+      </select>
+
+      <div class="properties f stargaze textarea1">
+        <label>Свойства</label>
+        <textarea type="text" name="system.propertiesText" placeholder="Свойства">{{system.propertiesText}}</textarea>
+      </div>
+
+    </div>
+
+    <div class="weapon-info-right stargaze textarea1">
+        <label>Описание</label>
+        <textarea name="system.description" placeholder="Описание">{{system.description}}</textarea>
+    </div>
+    
+  </div>
+</form>

@@ -1,1 +1,10 @@
-{}
+{
+  "TYPES.Actor.character": "Character",
+  "TYPES.Item.action": "Action",
+  "TYPES.Item.chemical": "Chemical",
+  "TYPES.Item.gear": "Gear",
+  "TYPES.Item.implant": "Implant",
+  "TYPES.Item.property": "Property",
+  "TYPES.Item.script": "Script",
+  "TYPES.Item.weapon": "Weapon"
+}
