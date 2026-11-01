@@ -1,0 +1,35 @@
+{
+  "id": "stargaze",
+  "title": "Stargaze",
+  "description": "Custom system",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13"
+  },
+  "authors": [{ "name": "Author" }],
+  "esmodules": ["stargaze.mjs"],
+  "styles": [
+    "styles/character_sheet.css",
+    "styles/skin.css",
+    "styles/system.css"
+  ],
+  "languages": [
+    { "lang": "ru", "name": "Русский", "path": "lang/ru.json" },
+    { "lang": "en", "name": "English", "path": "lang/en.json" }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "character": {}
+    },
+    "Item": {
+      "gear": {},
+      "weapon": {},
+      "script": {},
+      "implant": {}
+    }
+  },
+  "grid": { "distance": 1, "units": "m" },
+  "primaryTokenAttribute": "health",
+  "socket": false
+}

@@ -1,0 +1,149 @@
+/* === Base === */
+
+@font-face {
+  font-family: "Cascadia Code";
+  src: url("../fonts/CascadiaCode.woff2") format("woff2");
+}
+
+:root{
+  --background-dark: #000000;
+  --background-bright: #161616;
+
+  --text-dark: #222222;
+  --text-bright: #ccc;
+  --text-black: #000000;
+}
+
+/* Chat */
+.chat-message {
+  background: #111;
+  border: 1px solid;
+  border-left-width: 3px;
+  border-top-color: #333;
+  border-right-color: #333;
+  border-bottom-color: #333;
+  border-radius: 0;
+  color: #ccc;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 14px;
+  padding: 6px 8px;
+  margin-bottom: 4px;
+}
+
+.chat-message .message-header {
+  font-family: "Cascadia Code", Consolas, monospace;
+  text-transform: uppercase;
+}
+
+.chat-message .message-sender {
+  font-size: 14px;
+  font-weight: bold;
+  color: #eee;
+}
+
+.chat-message .message-timestamp {
+  font-size: 10px;
+  color: #777;
+}
+
+/* Context menu */
+#context-menu {
+  background: #111;
+  border: 1px solid #333;
+}
+
+#context-menu .context-item {
+  color: #ccc;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 12px;
+}
+
+#context-menu .context-item:hover {
+  background: #1a1a1a;
+  color: #eee;
+}
+
+/* Tooltip */
+#tooltip {
+  background: #111;
+  border: 1px solid #333;
+  color: #ccc;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 12px;
+}
+
+/* Font for text elements */
+.window-title,
+.message-sender,
+.message-content,
+.player-name,
+.scene-name,
+.directory-item .entry-name,
+.chat-input,
+button:not(.icon),
+input:not([type="range"]),
+textarea,
+select,
+label {
+  font-family: "Cascadia Code", Consolas, monospace;
+}
+
+
+
+
+
+
+/* Windows */
+
+.window-app .window-header,
+.window-app .window-header h4.window-title,
+.window-app .window-header a.header-button{
+  all: initial;
+}
+
+.window-app {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.window-app .window-header {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+
+  width: 100% !important;
+  height: 28px !important;
+  background-color: var(--background-bright) !important;
+}
+
+.window-app .window-header h4.window-title,
+.window-app .window-header a.header-button{
+  font-family: "Cascadia Code", Consolas, monospace !important;
+  font-style: normal !important;
+  font-size: 14px !important;
+
+  text-transform: uppercase !important;
+  color: var(--text-bright) !important;
+  margin: 7px;
+}
+
+.window-app .window-header h4.window-title{
+  flex: 1 !important;
+}
+
+.window-app .window-header a.header-button{
+  flex: none !important;
+}
+
+.window-app .window-content {
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+  background-color: black !important;
+}
+
+.window-app .window-resizable-handle {
+
+}
